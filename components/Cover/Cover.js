@@ -8,7 +8,7 @@ export const Cover = ({ children, background }) => {
         src={background}
         fill
         className="mix-blend-soft-light object-cover"
-        loader={({ src }) => `${src}?url=http://localhost:10028`}
+        loader={({ src }) => `${src}?url=http://localhost:10010`}
       />
       <div className="m-w-5xl z-10">{children}</div>
     </div>

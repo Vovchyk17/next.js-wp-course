@@ -7,10 +7,19 @@ import { Column } from "components/Column";
 import { PropertySearch } from "components/PropertySearch";
 import { theme } from "theme";
 import Image from "next/image";
+import { FormspreeForm } from "components/FormspreeForm";
 
 export const BlockRenderer = ({ blocks }) => {
   return blocks.map((block) => {
     switch (block.name) {
+      case "acf/formspreeform": {
+        return (
+          <FormspreeForm
+            key={block.id}
+            formId={block.attributes.data.form_id}
+          />
+        );
+      }
       case "acf/ctabutton": {
         return (
           <CallToActionButton
@@ -84,7 +93,7 @@ export const BlockRenderer = ({ blocks }) => {
             height={block.attributes.height}
             width={block.attributes.width}
             alt={block.attributes.alt || ""}
-            loader={({ src }) => `${src}?url=http://localhost:10028`}
+            loader={({ src }) => `${src}?url=http://localhost:10010`}
           />
         );
       }

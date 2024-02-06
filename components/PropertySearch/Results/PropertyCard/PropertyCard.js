@@ -26,7 +26,7 @@ export const PropertyCard = ({
           width="300"
           alt={title}
           style={{ objectFit: "cover", height: "200px", width: "300px" }}
-          loader={({ src }) => `${src}?url=http://localhost:10028`}
+          loader={({ src }) => `${src}?url=http://localhost:10010`}
         />
       </div>
       <div className="mt-3 text-lg font-bold">{title}</div>
