@@ -5,14 +5,33 @@ import { Paragraph } from "components/Paragraph";
 import { Columns } from "components/Columns";
 import { Column } from "components/Column";
 import { PropertySearch } from "components/PropertySearch";
-import { theme } from "theme";
-import Image from "next/image";
 import { FormspreeForm } from "components/FormspreeForm";
 import { PropertyFeatures } from "components/PropertyFeatures";
+import { Gallery } from "components/Gallery";
+import { TickItem } from "components/TickItem";
+import Image from "next/image";
+import { theme } from "theme";
 
 export const BlockRenderer = ({ blocks }) => {
   return blocks.map((block) => {
     switch (block.name) {
+      case "acf/tickitem": {
+        return (
+          <TickItem key={block.id}>
+            <BlockRenderer blocks={block.innerBlocks} />
+          </TickItem>
+        );
+      }
+      case "core/gallery": {
+        return (
+          <Gallery
+            key={block.id}
+            columns={block.attributes.columns || 3}
+            cropImages={block.attributes.imageCrop}
+            items={block.innerBlocks}
+          />
+        );
+      }
       case "acf/propertyfeatures": {
         return (
           <PropertyFeatures
@@ -82,6 +101,14 @@ export const BlockRenderer = ({ blocks }) => {
           <Columns
             key={block.id}
             stackOnMobile={block.attributes.isStackedOnMobile}
+            backgroundColor={
+              theme[block.attributes.backgroundColor] ||
+              block.attributes.style?.color?.background
+            }
+            textColor={
+              theme[block.attributes.textColor] ||
+              block.attributes.style?.color?.text
+            }
           >
             <BlockRenderer blocks={block.innerBlocks} />
           </Columns>
@@ -89,7 +116,18 @@ export const BlockRenderer = ({ blocks }) => {
       }
       case "core/column": {
         return (
-          <Column key={block.id} width={block.attributes?.width}>
+          <Column
+            key={block.id}
+            width={block.attributes?.width}
+            backgroundColor={
+              theme[block.attributes?.backgroundColor] ||
+              block.attributes?.style?.color?.background
+            }
+            textColor={
+              theme[block.attributes?.textColor] ||
+              block.attributes?.style?.color?.text
+            }
+          >
             <BlockRenderer blocks={block.innerBlocks} />
           </Column>
         );
