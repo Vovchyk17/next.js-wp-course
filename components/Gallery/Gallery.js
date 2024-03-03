@@ -33,7 +33,6 @@ export const Gallery = ({ columns, cropImages, items }) => {
             height={maxHeight || item.attributes.height}
             alt={item.attributes.alt}
             style={{ objectFit: "cover", height: "100%" }}
-            loader={({ src }) => `${src}?url=http://localhost:10010`}
           />
         </div>
       ))}

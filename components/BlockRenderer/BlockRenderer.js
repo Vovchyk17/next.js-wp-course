@@ -144,7 +144,6 @@ export const BlockRenderer = ({ blocks }) => {
             height={block.attributes.height}
             width={block.attributes.width}
             alt={block.attributes.alt || ""}
-            loader={({ src }) => `${src}?url=http://localhost:10010`}
           />
         );
       }
