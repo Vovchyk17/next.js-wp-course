@@ -1,1 +1,1 @@
-export * from "./TickItem";
+export * from "./TIckItem";
