@@ -20,20 +20,20 @@ export const MainMenu = ({
             className="hover:bg-slate-700 cursor relative group"
           >
             <div>
-              <Link href={item.destination} className="p-5 block">
+              <a href={item.destination} className="p-5 block">
                 {item.label}
-              </Link>
+              </a>
             </div>
             {!!item.subMenuItems?.length && (
               <div className="group-hover:block hidden bg-slate-800 text-right absolute right-0 top-full -mt-3">
                 {item.subMenuItems.map((subMenuItem) => (
                   <div key={subMenuItem.id}>
-                    <Link
+                    <a
                       href={subMenuItem.destination}
                       className="p-5 block whitespace-nowrap hover:bg-slate-700"
                     >
                       {subMenuItem.label}
-                    </Link>
+                    </a>
                   </div>
                 ))}
               </div>
