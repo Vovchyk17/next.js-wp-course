@@ -19,13 +19,13 @@ export const PropertyCard = ({
       href={destination}
       className="border-2 border-slate-300 p-5 block bg-slate-100 hover:bg-slate-200"
     >
-      <div className="flex w-full">
+      <div className="flex w-full relative h-[200px]">
         <Image
           src={image}
-          height="200"
-          width="300"
+          fill
+          sizes="300px"
           alt={title}
-          style={{ objectFit: "cover", height: "200px", width: "300px" }}
+          className="object-cover"
           loader={({ src }) => `${src}?url=http://localhost:10010`}
         />
       </div>

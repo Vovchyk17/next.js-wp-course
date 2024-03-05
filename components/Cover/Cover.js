@@ -7,6 +7,7 @@ export const Cover = ({ children, background }) => {
         alt="Cover"
         src={background}
         fill
+        priority
         className="mix-blend-soft-light object-cover"
       />
       <div className="m-w-5xl z-10">{children}</div>
